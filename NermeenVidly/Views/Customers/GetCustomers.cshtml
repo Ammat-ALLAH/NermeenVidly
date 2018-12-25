@@ -1,0 +1,47 @@
+﻿@model  NermeenVidly.ViewModels.CustomersViewModuel
+@{
+    ViewBag.Title = "GetCustomers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+@if (Model.CustomersList.Count == 0)
+{
+    <text> No Customers </text>
+}
+
+else
+{
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Customer Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cust in Model.CustomersList)
+            {
+
+                @*<tr>
+                        <td>
+                            <a href='@Url.Action("Customer", "Customers", new { Name = @cust.Name })'>@cust.Name</a>
+                        </td>
+                    </tr>*@
+
+                <tr class="table-active">
+                    <td>
+                        @Html.ActionLink(@cust.Name, "Customer", "Customers", new { Name = @cust.Name }, null)
+
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+}
+
+
+
+

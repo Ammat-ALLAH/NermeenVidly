@@ -28,5 +28,20 @@ namespace NermeenVidly.Controllers
             
             return View(randomMovie);
         }
+
+        public ActionResult GetMovies()
+        {
+            MoviesViewModel moviesVM = new MoviesViewModel();
+
+            List<Movie> _moviesList = new List<Movie>()
+            {
+                new Movie() {Name = "Shrek!"},
+                new Movie() {Name = "Home Alone"},
+            };
+            moviesVM.MoviesList = _moviesList;
+
+
+            return View(moviesVM);
+        }
     }
 }
