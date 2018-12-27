@@ -11,6 +11,10 @@ namespace NermeenVidly.Models
 
         DbSet<Customer> customersDBSet { get; set; }
         public DbSet<Movie> MoviesDBSet { get; set; }
+        public ApplicationDbContext():base("DefaultConnection")
+        {
+
+        }
 
     }
 }
