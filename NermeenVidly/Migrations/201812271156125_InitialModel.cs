@@ -12,7 +12,7 @@ namespace NermeenVidly.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(maxLength:225),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -21,7 +21,7 @@ namespace NermeenVidly.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(maxLength: 225),
                     })
                 .PrimaryKey(t => t.Id);
             
