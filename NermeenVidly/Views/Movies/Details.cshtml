@@ -1,0 +1,15 @@
+﻿@model  NermeenVidly.Models.Movie
+@{
+    ViewBag.Title = "Movies Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movie Details</h2>
+
+    <ul>
+        <li>@Model.Name</li>
+        <li>@Model.Genre.Name </li>
+        <li>@Model.NumberInStock </li>
+        <li>@Model.DateAdded </li>
+        <li>@Model.ReleaseDate </li>
+    </ul>

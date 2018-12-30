@@ -20,16 +20,16 @@ namespace NermeenVidly.Migrations
             
             AddColumn("dbo.Customers", "IsSubscribedToNewsletter", c => c.Boolean(nullable: false));
             AddColumn("dbo.Customers", "Birthdate", c => c.DateTime(nullable: false));
-            AddColumn("dbo.Customers", "MembershipTYpeId", c => c.Byte(nullable: false));
-            CreateIndex("dbo.Customers", "MembershipTYpeId");
-            AddForeignKey("dbo.Customers", "MembershipTYpeId", "dbo.MembershipTypes", "Id", cascadeDelete: true);
+            AddColumn("dbo.Customers", "MembershipTypeId", c => c.Byte(nullable: false));
+            CreateIndex("dbo.Customers", "MembershipTypeId");
+            AddForeignKey("dbo.Customers", "MembershipTypeId", "dbo.MembershipTypes", "Id", cascadeDelete: true);
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Customers", "MembershipTYpeId", "dbo.MembershipTypes");
-            DropIndex("dbo.Customers", new[] { "MembershipTYpeId" });
-            DropColumn("dbo.Customers", "MembershipTYpeId");
+            DropForeignKey("dbo.Customers", "MembershipTypeId", "dbo.MembershipTypes");
+            DropIndex("dbo.Customers", new[] { "MembershipTypeId" });
+            DropColumn("dbo.Customers", "MembershipTypeId");
             DropColumn("dbo.Customers", "Birthdate");
             DropColumn("dbo.Customers", "IsSubscribedToNewsletter");
             DropTable("dbo.MembershipTypes");

@@ -3,6 +3,7 @@ using NermeenVidly.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,38 +11,24 @@ namespace NermeenVidly.Controllers
 {
     public class MoviesController : Controller
     {
+        ApplicationDbContext _context = new ApplicationDbContext();
         // GET: Movies
-        public ActionResult Random()
+        public ActionResult Index()
         {
-            Movie _movieModel = new Movie() { Name = "Shrek!" };
-
-            RandomMovieViewModel randomMovie = new RandomMovieViewModel()
-            {
-                movie = _movieModel,
-                customers = new List<Customer>()
-                {
-                    new Customer(){Name = "Customer 1"},
-                    new Customer(){Name = "Customer 2"}
-        }
-            };
-            
-            
-            return View(randomMovie);
+            MoviesViewModel _movieModel = new MoviesViewModel();
+            _movieModel.MoviesList = _context.Movies.Include(G => G.Genre).ToList();
+            return View(_movieModel);
         }
 
-        public ActionResult GetMovies()
+        public ActionResult Details(int Id)
         {
-            MoviesViewModel moviesVM = new MoviesViewModel();
 
-            List<Movie> _moviesList = new List<Movie>()
-            {
-                new Movie() {Name = "Shrek!"},
-                new Movie() {Name = "Home Alone"},
-            };
-            moviesVM.MoviesList = _moviesList;
+            Movie movie = new Movie();
+
+            movie = _context.Movies.Include(G => G.Genre).SingleOrDefault(m => m.Id == Id);
 
 
-            return View(moviesVM);
+            return View(movie);
         }
     }
 }

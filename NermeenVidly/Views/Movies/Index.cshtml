@@ -1,0 +1,45 @@
+﻿@model  NermeenVidly.ViewModels.MoviesViewModel
+
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+
+
+
+
+@if (Model.MoviesList.Count == 0)
+{
+    <text> No Movies </text>
+}
+
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Movie Name</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Number In Stock</th>
+                <th scope="col">Date Added</th>
+                <th scope="col">Release Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model.MoviesList)
+            {
+                <tr>
+                    <td>@Html.ActionLink(@movie.Name, "Details", "Movies", new { Id = @movie.Id }, null)</td>
+                    <td>@movie.Genre.Name </td>
+                    <td>@movie.NumberInStock </td>
+                    <td>@movie.DateAdded </td>
+                    <td>@movie.ReleaseDate </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}

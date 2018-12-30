@@ -12,5 +12,7 @@ namespace NermeenVidly.Models
         public byte DuraitionInMonth { get; set; }
         public byte DiscountRate { get; set; }
 
+        public string Name { get; set; }
+
     }
 }

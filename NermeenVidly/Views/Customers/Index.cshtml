@@ -1,10 +1,10 @@
 ﻿@model  NermeenVidly.ViewModels.CustomersViewModuel
 @{
-    ViewBag.Title = "GetCustomers";
+    ViewBag.Title = "Customers List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Customers</h2>
+<h2>Customers List</h2>
 
 @if (Model.CustomersList.Count == 0)
 {
@@ -17,6 +17,8 @@ else
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Customer Name</th>
+                <th scope="col">Membership Type</th>
+
             </tr>
         </thead>
         <tbody>
@@ -29,12 +31,16 @@ else
                         </td>
                     </tr>*@
 
-                <tr class="table-active">
-                    <td>
-                        @Html.ActionLink(@cust.Name, "Customer", "Customers", new { Name = @cust.Name }, null)
+            <tr class="table-active">
+                <td>
+                    @Html.ActionLink(@cust.Name, "Details", "Customers", new { id = @cust.Id }, null)
 
-                    </td>
-                </tr>
+                </td>
+                <td>
+                    @cust.membershipType.Name
+
+                </td>
+            </tr>
 
             }
         </tbody>

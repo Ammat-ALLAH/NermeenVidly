@@ -9,8 +9,8 @@ namespace NermeenVidly.Models
     public class ApplicationDbContext :DbContext
     {
 
-        DbSet<Customer> customersDBSet { get; set; }
-        public DbSet<Movie> MoviesDBSet { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Movie> Movies { get; set; }
         public ApplicationDbContext():base("DefaultConnection")
         {
 

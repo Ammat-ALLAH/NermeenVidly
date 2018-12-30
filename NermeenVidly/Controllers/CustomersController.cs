@@ -3,6 +3,7 @@ using NermeenVidly.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,26 +11,26 @@ namespace NermeenVidly.Controllers
 {
     public class CustomersController : Controller
     {
-        public ActionResult Customer(string Name)
+
+        ApplicationDbContext _Context;
+        public CustomersController()
         {
-            Customer C = new Customer();
-            C.Name = Name;
-            return View(C);
+            _Context = new ApplicationDbContext();
         }
-        // GET: Customers
-        public ActionResult GetCustomers()
+        public ActionResult Index()
         {
             CustomersViewModuel CustomersVM = new CustomersViewModuel();
 
-            List<Customer> _CustomersList = new List<Customer>()
-            {
-                new Customer() {Name = "Nermeen!"},
-                new Customer() {Name = "Mohammed Said"},
-            };
-            CustomersVM.CustomersList = _CustomersList;
-
+            CustomersVM.CustomersList = _Context.Customers.Include(C => C.membershipType).ToList();
 
             return View(CustomersVM);
+        }
+        // GET: Customers
+        public ActionResult Details(int id)
+        {
+            Customer Customer = _Context.Customers.SingleOrDefault( C=>C.Id == id);
+
+            return View(Customer);
         }
     }
 }
