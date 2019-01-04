@@ -16,5 +16,7 @@ namespace NermeenVidly.Models
         public MembershipType membershipType { get; set; }
         public byte MembershipTypeId { get; set; }
 
+
+
     }
 }
