@@ -179,14 +179,6 @@
     <Compile Include="Migrations\201812292217586_PopulateNameColumnInMembershipType.Designer.cs">
       <DependentUpon>201812292217586_PopulateNameColumnInMembershipType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812292247326_AddColumnBirthDateToCustomersTable.cs" />
-    <Compile Include="Migrations\201812292247326_AddColumnBirthDateToCustomersTable.Designer.cs">
-      <DependentUpon>201812292247326_AddColumnBirthDateToCustomersTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812292316579_blabla.cs" />
-    <Compile Include="Migrations\201812292316579_blabla.Designer.cs">
-      <DependentUpon>201812292316579_blabla.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201812301305245_MoviesRemainingDetails.cs" />
     <Compile Include="Migrations\201812301305245_MoviesRemainingDetails.Designer.cs">
       <DependentUpon>201812301305245_MoviesRemainingDetails.cs</DependentUpon>
@@ -199,9 +191,9 @@
     <Compile Include="Migrations\201812301307256_PopulateGenreTable.Designer.cs">
       <DependentUpon>201812301307256_PopulateGenreTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901051426468_Finalize.cs" />
-    <Compile Include="Migrations\201901051426468_Finalize.Designer.cs">
-      <DependentUpon>201901051426468_Finalize.cs</DependentUpon>
+    <Compile Include="Migrations\201901081736416_DatePercision.cs" />
+    <Compile Include="Migrations\201901081736416_DatePercision.Designer.cs">
+      <DependentUpon>201901081736416_DatePercision.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -212,6 +204,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\CustomersViewModuel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\MoviesViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
@@ -261,6 +254,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\New.cshtml" />
+    <Content Include="Views\Movies\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -294,12 +288,6 @@
     <EmbeddedResource Include="Migrations\201812292217586_PopulateNameColumnInMembershipType.resx">
       <DependentUpon>201812292217586_PopulateNameColumnInMembershipType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812292247326_AddColumnBirthDateToCustomersTable.resx">
-      <DependentUpon>201812292247326_AddColumnBirthDateToCustomersTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812292316579_blabla.resx">
-      <DependentUpon>201812292316579_blabla.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812301305245_MoviesRemainingDetails.resx">
       <DependentUpon>201812301305245_MoviesRemainingDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -309,8 +297,8 @@
     <EmbeddedResource Include="Migrations\201812301307256_PopulateGenreTable.resx">
       <DependentUpon>201812301307256_PopulateGenreTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901051426468_Finalize.resx">
-      <DependentUpon>201901051426468_Finalize.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901081736416_DatePercision.resx">
+      <DependentUpon>201901081736416_DatePercision.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

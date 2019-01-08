@@ -7,13 +7,13 @@ namespace NermeenVidly.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Finalize : IMigrationMetadata
+    public sealed partial class DatePercision : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Finalize));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(DatePercision));
         
         string IMigrationMetadata.Id
         {
-            get { return "201901051426468_Finalize"; }
+            get { return "201901081736416_DatePercision"; }
         }
         
         string IMigrationMetadata.Source

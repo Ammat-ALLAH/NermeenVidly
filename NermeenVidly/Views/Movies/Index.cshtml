@@ -9,7 +9,7 @@
 
 
 
-
+@Html.ActionLink("New Movie", "New", "Movies")
 
 @if (Model.MoviesList.Count == 0)
 {
@@ -32,7 +32,7 @@ else
             @foreach (var movie in Model.MoviesList)
             {
                 <tr>
-                    <td>@Html.ActionLink(@movie.Name, "Details", "Movies", new { Id = @movie.Id }, null)</td>
+                    <td>@Html.ActionLink(@movie.Name, "Edit", "Movies", new { Id = @movie.Id }, null)</td>
                     <td>@movie.Genre.Name </td>
                     <td>@movie.NumberInStock </td>
                     <td>@movie.DateAdded </td>
