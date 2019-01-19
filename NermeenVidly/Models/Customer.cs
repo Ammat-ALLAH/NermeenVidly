@@ -9,6 +9,7 @@ namespace NermeenVidly.Models
     public class Customer
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
 
@@ -16,6 +17,8 @@ namespace NermeenVidly.Models
         public DateTime? Birthdate { get; set; } 
 
         public MembershipType membershipType { get; set; }
+        [Min18YearsOldIfMember]
+        [Required(ErrorMessage = "Please Choose one of the membership types")]
         public byte MembershipTypeId { get; set; }
 
 

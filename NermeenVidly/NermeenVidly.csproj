@@ -195,11 +195,24 @@
     <Compile Include="Migrations\201901081736416_DatePercision.Designer.cs">
       <DependentUpon>201901081736416_DatePercision.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901191551441_Final.cs" />
+    <Compile Include="Migrations\201901191551441_Final.Designer.cs">
+      <DependentUpon>201901191551441_Final.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901191759368_RemoveTestDateFromMovie.cs" />
+    <Compile Include="Migrations\201901191759368_RemoveTestDateFromMovie.Designer.cs">
+      <DependentUpon>201901191759368_RemoveTestDateFromMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901191905188_MovieNameDoesntAcceptNUll.cs" />
+    <Compile Include="Migrations\201901191905188_MovieNameDoesntAcceptNUll.Designer.cs">
+      <DependentUpon>201901191905188_MovieNameDoesntAcceptNUll.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsOldIfMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
@@ -253,8 +266,8 @@
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
-    <Content Include="Views\Customers\New.cshtml" />
-    <Content Include="Views\Movies\New.cshtml" />
+    <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -299,6 +312,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901081736416_DatePercision.resx">
       <DependentUpon>201901081736416_DatePercision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901191551441_Final.resx">
+      <DependentUpon>201901191551441_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901191759368_RemoveTestDateFromMovie.resx">
+      <DependentUpon>201901191759368_RemoveTestDateFromMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901191905188_MovieNameDoesntAcceptNUll.resx">
+      <DependentUpon>201901191905188_MovieNameDoesntAcceptNUll.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

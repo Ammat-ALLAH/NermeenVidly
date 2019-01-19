@@ -6,7 +6,6 @@ using System.Linq;
 using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
-using System.Data.Entity;
     
 
 namespace NermeenVidly.Controllers
@@ -36,15 +35,24 @@ namespace NermeenVidly.Controllers
         }
 
 
-        public ActionResult New(int? Id)
+        public ActionResult CustomerForm(int? Id)
         {
-            CustomerFormViewModel _CustormerForm = new CustomerFormViewModel();
+            CustomerFormViewModel _CustormerForm = new CustomerFormViewModel {
+
+                
+                MembershipTyes = _Context.MembershipTypes.ToList()
+        };
             //View Existing Customer object
-            if (Id != 0)
+            if (Id != null && Id != 0)
             {
                 //UpdateExisting 
-                Customer customer = _Context.Customers.Include(m => m.membershipType).SingleOrDefault(C => C.Id == Id);
-                _CustormerForm.customer = customer;
+                Customer customer = _Context.Customers.Include(m => m.membershipType).SingleOrDefault(C => C.Id == Id);  
+                _CustormerForm.Id = customer.Id;
+                _CustormerForm.Birthdate = customer.Birthdate;
+                _CustormerForm.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+                _CustormerForm.MembershipTypeId = customer.MembershipTypeId;
+                _CustormerForm.Name = customer.Name;
+
             }
 
 
@@ -52,8 +60,18 @@ namespace NermeenVidly.Controllers
             return View(_CustormerForm);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
+            if (!ModelState.IsValid)
+            {
+                var _CustormerForm = new CustomerFormViewModel
+                {
+                    MembershipTyes = _Context.MembershipTypes.ToList()
+                };
+                return View("CustomerForm",_CustormerForm);
+            }
+
             if (customer.Id != 0)
             {
                 Customer CustomerToEdit = _Context.Customers.SingleOrDefault(C => C.Id == customer.Id);

@@ -6,7 +6,7 @@
 
 <h2>Customers List</h2>
 
-@Html.ActionLink("New Customer", "New", "Customers")
+@Html.ActionLink("New Customer", "CustomerForm", "Customers")
 
 @if (Model.CustomersList.Count == 0)
 {
@@ -35,7 +35,7 @@ else
 
                 <tr class="table-active">
                     <td>
-                        @Html.ActionLink(@cust.Name, "New", "Customers", new { id = @cust.Id }, null)
+                        @Html.ActionLink(@cust.Name, "CustomerForm", "Customers", new { id = @cust.Id }, null)
 
                     </td>
                     <td>
