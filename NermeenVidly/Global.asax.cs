@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoMapper;
+using NermeenVidly.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +14,7 @@ namespace NermeenVidly
     {
         protected void Application_Start()
         {
+            Mapper.Initialize(C => C.AddProfile<MappingProfile>());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
