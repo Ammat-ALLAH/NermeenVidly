@@ -13,10 +13,11 @@ namespace NermeenVidly.App_Start
         public MappingProfile()
         {
             Mapper.CreateMap<Customer, CustomerDTO>().ForMember(m=>m.Id,opt=>opt.Ignore());
-            Mapper.CreateMap<CustomerDTO,Customer>();
+            Mapper.CreateMap<CustomerDTO, Customer>();
 
+            Mapper.CreateMap<Movie, MoviesDto>().ForMember(m => m.Id, opt => opt.Ignore());
+            Mapper.CreateMap<MoviesDto, Movie>();
 
-         
         }
     }
 }
